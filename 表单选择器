@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表单选择器</title>
+		//P51
+		<script src="js/jquery-3.0.0.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			$("div").append("有"+$("#form1 :input").length+"个表单元素:input<br/>")
+				.append("有"+$("#form1 input").length+"个表单元素input<br/>")
+				.append("有"+$("#form1 :text").length+"个文本框text元素<br/>")
+				.append("有"+$("#form1 :password").length+"个密码框password元素<br/>")
+				.append("有"+$("#form1 :radio").length+"个单选框radio元素<br/>")
+				.append("有"+$("#form1 :checkbox").length+"个多选框checkbox元素<br/>")
+				.append("有"+$("#form1 :submit").length+"个提交按钮submit元素<br/>")
+				.append("有"+$("#form1 :image").length+"个图像按钮image元素<br/>")
+				.append("有"+$("#form1 :reset").length+"个重置reset元素<br/>")
+				.append("有"+$("#form1 :button").length+"个按钮button<br/>")
+				.append("有"+$("#form1 select").length+"个select元素<br/>")
+				.append("有"+$("#form1 :file").length+"个文件上传file按钮<br/>")
+				.append("有"+$("#form1 :hidden").length+"个不可见hidden元素<br/>")
+		})				
+		</script>
+	</head>
+	<body>
+		<form id="form1"action="#">
+			<input type="button"value="Button" /><br />
+			<input type="checkbox"name="c" />1
+			<input type="checkbox"name="c" />2
+			<input type="checkbox"name="c" />3<br />
+			<input type="file" /><br />
+			<input type="hidden" /><div style="display: none;"></div><br />
+			<input type="image" />ss<br />
+			<input type="password" /><br />
+			<input type="radio"name="a" />1<input type="radio"name="a" />2<br />
+			<input type="reset" /><br />
+			<input type="submit"value="提交" /><br />
+			<input type="text" /><br />
+			<select><option>Option</option></select><br />
+			<textarea></textarea><br />
+			<button>Button</button><br />
+		</form>
+		<div></div>
+	</body>
+</html>
