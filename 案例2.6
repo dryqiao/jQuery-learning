@@ -1,0 +1,115 @@
+HTML:
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--	//P52-->
+	<head>
+		<meta charset="UTF-8">
+		<title>案例研究2.6</title>
+		<link media="screen"href="css/anli2.6.css" rel="stylesheet" />
+		<script src="js/jquery-3.0.0.min.js"></script>
+		<script src="js/anli2.6.js"></script>
+	</head>
+	<body>
+		<div class="SubCategoryBox">
+			<ul>
+				<li><a href="#">佳能</a><i>（30440）</i></li>
+				<li><a href="#">索尼</a><i>（30440）</i></li>
+				<li><a href="#">三星</a><i>（30440）</i></li>
+				<li><a href="#">尼康</a><i>（30440）</i></li>
+				<li><a href="#">松下</a><i>（30440）</i></li>
+				<li><a href="#">卡西欧</a><i>（30440）</i></li>
+				<li><a href="#">富士</a><i>（30440）</i></li>
+				<li><a href="#">柯达</a><i>（30440）</i></li>
+				<li><a href="#">奥林巴斯</a><i>（30440）</i></li>
+				<li><a href="#">明基</a><i>（30440）</i></li>
+				<li><a href="#">爱国者</a><i>（30440）</i></li>
+				<li><a href="#">宾得</a><i>（30440）</i></li>
+				<li><a href="#">其他</a><i>（30440）</i></li>
+			</ul>
+			<div class="showmore">
+				<a  href="#"><span>显示全部品牌</span></a>
+			</div>
+		</div>
+	</body>
+</html>
+
+
+CSS：
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	text-align: center;
+	font-size: 15px;
+}
+a{
+	text-decoration: none;
+}
+.SubCategoryBox{
+	width: 600px;
+	border: 1px solid black; 
+	background: white;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 50px;
+}
+.SubCategoryBox ul{
+	list-style: none;
+	margin-top: 20px;
+}
+.SubCategoryBox ul li{
+	display: block;
+	float: left;
+	width: 200px;
+	line-height: 20px;
+}
+.showmore{
+	background: white;
+	clear: both;
+	text-align: center;
+	padding-top:10px ;
+}
+.showmore a{
+	display: block;
+	width: 120px;
+	margin: 0 auto;
+	line-height: 24px;
+	border: 1px solid #aaa; 
+	margin-bottom: 20px;
+}
+
+
+.promoted a{
+	color: red;
+}
+
+
+JS：
+$(function(){
+	//隐藏索引值大于5的，保留最后一条
+	$("ul li:gt(5):not(:last)").hide();
+	
+	$(".showmore a").click(function(){
+		//隐藏
+		if($("ul li:gt(5):not(:last)").is(":visible")){
+			$("ul li:gt(5):not(:last)").hide();
+			//文字替换
+			$(".showmore a span").text("显示全部品牌");
+			//去除高亮显示
+			$("ul li").removeClass("promoted");
+		}
+		//显示
+		else{
+		$("ul li:gt(5):not(:last)").show();
+		//文字替换
+		$(".showmore a span")
+			.text("精简显示品牌");
+		//添加高亮属性
+		$("ul li").filter(":contains('尼康'),:contains('佳能')")
+			.addClass("promoted");
+		}
+			return false;
+	})
+})
+
