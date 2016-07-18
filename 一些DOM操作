@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>查找节点</title>
+		<script src="js/jquery-3.0.0.min.js"></script>
+		<script>
+		$(function(){
+			//查找元素节点
+			var $li=$("ul li:eq(1)");
+			var li_txt=$li.text();
+//			alert(li_txt);
+			//查找属性节点
+			var $para=$("p");
+			var p_txt=$para.attr("title");
+//			alert(p_txt);
+			
+			//创建元素节点和文本节点、属性节点。文本和属性都是直接在创建元素节点时一起插入
+			var $li_1=$("<li title='西瓜'>西瓜</li>");
+			var $li_2=$("<li title='芒果'>芒果</li>");
+			//插入元素节点
+			$("ul").append($li_1);
+			$("ul").append($li_2);
+			
+			$("#btn1").click(function(){
+				//移动节点
+			var $one_li=$("ul li:eq(1)");
+			var $two_li=$("ul li:eq(2)");
+			$two_li.insertBefore($one_li);
+			})
+			
+			
+			$("#btn2").click(function(){
+				//删除节点
+			$("ul li:eq(1)").remove();
+			})
+			
+			
+			$("#btn3").click(function(){
+				//清空节点
+			$("ul li:eq(1)").empty();
+			})
+			
+			$("#btn4").click(function(){
+				//复制节点
+			$("ul li:eq(0)").clone().appendTo("ul");
+			})
+			
+			//clone(ture)此时复制的元素会复制功能
+
+			$("#btn5").click(function(){
+				//替换节点
+			$("p").replaceWith("<br/><br/><strong>你最不喜欢的水果是？</strong>");
+			})
+			
+			$("#btn6").click(function(){
+				//包裹节点
+			$("li").wrap("<strong></strong>");
+			})
+			
+			$("#btn7").click(function(){
+				//包裹节点
+			$("li").wrapAll("<strong></strong>");
+			})
+			
+			
+			})
+		</script>
+	</head>
+	<body>
+		<input type="button"id="btn1"value="移动节点" />
+		<input type="button"id="btn2"value="删除节点" />
+		<input type="button"id="btn3"value="清空节点empty" />
+		<input type="button"id="btn4"value="复制节点clone" />
+		<input type="button"id="btn5"value="替换节点" />
+		<input type="button"id="btn6"value="包裹节点wrap" />
+		<input type="button"id="btn7"value="包裹节点wrapAll" />
+		
+		
+		<p title="选择你最喜欢的水果">你最喜欢的水果</p>
+		<ul>
+			<li title="苹果">苹果</li>
+			<li title="橘子">橘子</li>
+			<li title="桃子">桃子</li>
+		</ul>
+	</body>
+</html>
+
