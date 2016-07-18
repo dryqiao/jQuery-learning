@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>val操作</title>
+		<!--P82 VAL()方法-->
+		<script type="text/javascript" src="js/jquery-3.0.0.min.js" ></script>
+		<script>
+		$(function(){
+			//地址框聚焦时，清空
+			$("#address").focus(function(){
+				var txt_value=$(this).val();
+				if(txt_value==this.defaultValue){
+					$(this).val("");
+				}
+			});
+			//失去焦点，地址框的值设置为xxx
+			$("#address").blur(function(){
+				var txt_value=$(this).val();
+				if(txt_value==""){
+					$(this).val(this.defaultValue);
+				}
+			});
+			//地址框聚焦时，清空
+			$("#password").focus(function(){
+				var txt_value=$(this).val();
+				if(txt_value==this.defaultValue){
+					$(this).val("");
+				}
+			});
+			//失去焦点，地址框的值设置为xxx
+			$("#password").blur(function(){
+				var txt_value=$(this).val();
+				if(txt_value==""){
+					$(this).val(this.defaultValue);
+				}
+			});
+		})
+		</script>
+	</head>
+	<body>
+		<input type="text" id="address"value="请输入邮箱地址" />
+		<input type="text"id="password"value="请输入邮箱密码" />
+		<input type="button"value="登录" />
+	</body>
+</html>
