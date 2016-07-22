@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#panel{
+				position: relative;
+				width: 100px;
+				height: 100px;
+				border: 1px solid aliceblue;
+				background: black;
+				cursor: pointer;
+			}
+		</style>
+		<script src="js/jquery-3.0.0.min.js"></script>
+		<script>
+			$(function(){
+				var $panel=$("#panel");
+				$("#btn1").click(function(){
+					$panel.animate({left:"500px"},1000);
+				});
+				$("#btn2").click(function(){
+					$panel.animate({left:"+=500px"},1000);
+					$panel.animate({height:"+=100px"},1000);
+				});
+				$("#btn3").click(function(){
+					$panel.animate({left:"+=500px",height:"+=100px"},1000);
+				});
+				$("#btn4").click(function(){
+					$panel.animate({left:"+=500px",height:"+=100px",opacity:"1"},1000)
+						.animate({top:"200px",width:"200px"},3000)
+						.fadeOut("slow");
+				});
+			})
+		</script>
+	</head>
+	<body>
+		<input type="button"value="右移" id="btn1"/>
+		<input type="button"value="先左移，再放大"id="btn2" />
+		<input type="button"value="累加500px，同时放大高度"id="btn3" />
+		<input type="button"value="综合"id="btn4" />
+		<input type="button"value=""id="btn5" />
+		<div id="panel"></div>
+	</body>
+</html>
