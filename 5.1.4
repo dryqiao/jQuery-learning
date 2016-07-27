@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.centent{
+				float: left;
+				text-align: center;
+				margin: 10px;
+			}
+			span{
+				display: block;
+				cursor: pointer;
+				background: black;
+				margin: 2px;
+				color: white;
+			}
+		</style>
+		<script src="js/jquery-1.3.1.js"></script>
+		<script>
+		$(function(){
+			//添加功能
+			$('#add').click(function(){
+				var $options=$('#select1 option:selected');
+//				var $remove=$options.remove();
+//				$remove.appendTo('#select2');
+				//删除和追加可以appendTo直接完成
+				$options.appendTo('#select2');
+			});
+			
+			//全部添加
+			$('#add_all').click(function(){
+				$('#select1 option').appendTo('#select2');
+			});
+			//双击添加到右边
+			$('#select1').dblclick(function(){
+				$('#select1 option:selected').appendTo('#select2');
+			});
+			//添加到左边
+			$('#remove').click(function(){
+				var $options=$('#select2 option:selected');
+				$options.appendTo('#select1');
+			});
+			
+			//全部添加
+			$('#remove_all').click(function(){
+				$('#select2 option').appendTo('#select1');
+			});
+			
+			
+		});
+		</script>
+	</head>
+	<body>
+		<div class="centent">
+			<select multiple  id="select1"style="width:100px;height: 160px;">
+				<option value="1">选项1</option>
+				<option value="2">选项2</option>
+				<option value="3">选项3</option>
+				<option value="4">选项4</option>
+				<option value="5">选项5</option>
+				<option value="6">选项6</option>
+				<option value="7">选项7</option>				
+				<option value="8">选项8</option>
+			</select>
+			<div>
+				<span id="add">选中添加到右边</span>
+				<span id="add_all">全部添加到右边</span>
+			</div>
+		</div>
+		
+		<div class="centent">
+			<select multiple id="select2"style="width:100px;height: 160px;">
+				
+			</select>
+			<div>
+				<span id="remove">选中删除到左边</span>
+				<span id="remove_all">全部删除到左边</span>
+			</div>
+		</div>
+	</body>
+</html>
