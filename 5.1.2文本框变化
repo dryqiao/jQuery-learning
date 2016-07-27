@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>5.1.2</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.msg{
+				width: 300px;
+				margin: 0 auto;
+			}
+			.msg_caption{
+				overflow: hidden;
+				margin-bottom: 1px;
+			}
+			.msg_caption span{
+				display: block;
+				float: left;
+				cursor: pointer;
+				margin: 0 2px;
+				padding: 4px 10px;
+				background: #898989;
+			}
+			.msg textarea{
+				width: 300px;
+				height: 80px;
+				height: 100px;
+			}
+		</style>
+		<script src="js/jquery-1.3.1.js"></script>
+		<script>
+			$(function(){
+				//获取评论框
+				var $comment=$("#comment");
+				//评论框变高
+				$(".bigger").click(function(){
+					if($comment.height()<500){
+						$comment.height($comment.height()+50);
+					}
+				});
+				//评论框缩小
+				$(".smaller").click(function(){
+					if($comment.height()>50){
+						$comment.height($comment.height()-50);
+					}
+				});
+				// 滚动条向上
+				$(".upper").click(function(){
+					if(!$comment.is(":animated")){
+						$comment.animate({scrollTop:"-=50"},400);
+					}
+				});
+				//滚动条向下
+				$(".downer").click(function(){
+					if(!$comment.is(":animated")){
+						$comment.animate({scrollTop:"+=50"},400);
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<form>
+			<div class="msg">
+				<div class="msg_caption">
+					<span class="bigger">放大</span>
+					<span class="smaller">缩小</span>
+					<span class="upper">向上</span>
+					<span class="downer">向下</span>
+				</div>
+				<div>
+					<textarea id="comment"rows="8"cols="20">发哈哈覅二号覅
+						和我高和覅澳网后覅和高偶尔会覅回 if阿黑哦好覅偶问哈服务个
+						我哈佛个爱哈佛个或符合 发个偶尔会覅会绯闻发我 我哈佛个爱哈佛个或符合 发个偶尔会覅会绯闻发我 我哈佛个爱哈佛个或符合 发个偶尔会覅会绯闻发我 我哈佛个爱哈佛个或符合 发个偶尔会覅会绯闻发我 我哈佛个爱哈佛个或符合 发个偶尔会覅会绯闻发我 我哈佛个爱哈佛个或符合 发个偶尔会覅会绯闻发我 我哈佛个爱哈佛个或符合 发个偶尔会覅会绯闻发我 我哈佛个爱哈佛个或符合 发个偶尔会覅会绯闻发我 我哈佛个爱哈佛个或符合 发个偶尔会覅会绯闻发我 我哈佛个爱哈佛个或符合 发个偶尔会覅会绯闻发我 我哈佛个爱哈佛个或符合 发个偶尔会覅会绯闻发我 我哈佛个爱哈佛个或符合 发个偶尔会覅会绯闻发我 我哈佛个爱哈佛个或符合 发个偶尔会覅会绯闻发我 我哈佛个爱哈佛个或符合 发个偶尔会覅会绯闻发我 
+					</textarea>
+				</div>
+			</div>
+			
+		</form>
+	</body>
+</html>
