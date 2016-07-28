@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>5.1.5表单验证</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			form{
+				border: 1px solid black;
+				margin: 5px;
+			}
+
+			.int label{
+				float: left;
+				width: 100px;
+				text-align: right;
+			}
+			.sub input{
+				margin-left: 100px;
+			}
+			.high{
+				color: red;
+			}
+			.formtips{width: 200px;margin:2px;padding:2px;}
+			.onError{
+					padding-left:25px;
+			}
+			.onSuccess{
+					padding-left:25px;
+			}
+		</style>
+		<script src="js/jquery-3.0.0.min.js"></script>
+		<script>
+			$(function(){
+				//必填文本框添加*
+				$('.required').each(function(){
+					var $required=$("<strong class='high'>*</strong>");
+					$(this).parent().append($required);
+				});
+				
+				//失去焦点事件
+				$('form:input').blur(function(){
+					var $parent=$(this).parent();
+					if($(this).is('#username')){
+						if($(this).value==''||this.value.length<6){
+							var errormsg='请输入至少6位用户名';
+							$parent.append('<span class="formtips onError">'+errormsg+'</span>');
+						}
+						else{
+							var okmsg='输入正确';
+							$parent.append('<span class="formtips onSuccess">'+okmsg+'</span>');
+						}
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<form action="#"method="post">
+			<div class="int">
+				<label for="username">用户名：</label>
+				<input type="text"id="username"class="required" />
+			</div>
+			<div class="int">
+				<label for="email">邮箱：</label>
+				<input type="text"id="email"class="required" />
+			</div>
+			<div class="int">
+				<label for="personinfo">个人资料：</label>
+				<input type="text"id="personinfo" />
+			</div>
+			<div class="sub">
+				<input type="submit"value="提交"id="send" />
+				<input type="reset"id="res" />
+			</div>
+		</form>
+	</body>
+</html>
