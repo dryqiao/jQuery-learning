@@ -42,8 +42,12 @@
 				});
 				
 				//失去焦点事件
-				$('form:input').blur(function(){
+				$('form :input').blur(function(){
 					var $parent=$(this).parent();
+					//清楚上次产生的样式
+					$parent.find('.formtips').remove();
+					
+					//验证用户名
 					if($(this).is('#username')){
 						if($(this).value==''||this.value.length<6){
 							var errormsg='请输入至少6位用户名';
@@ -54,7 +58,35 @@
 							$parent.append('<span class="formtips onSuccess">'+okmsg+'</span>');
 						}
 					}
+					
+					//验证邮箱
+					if($(this).is('#email')){
+						if(this.value==''||this.value!=""&&!/.+@.+\.[a-zA-Z]{2,4}$/.test(this.value)){
+							
+							var errormsg='请输入正确的邮箱地址';
+							$parent.append('<span class="formtips onError">'+errormsg+'</span>');
+						}else{
+							var okmsg='输入正确';
+							$parent.append('<span class="formtips onSuccess">'+okmsg+'</span>');
+						}
+					}
+				});//end blur
+				
+				//提交事件
+				$('#send').click(function(){
+					$("form .required").trigger('blur');
+					var numError=$('form .onError').length;
+					if(numError){
+						return false;
+					}
+					alert("注册成功");
 				});
+				
+				//重置
+				$('#res').click(function(){
+					$('.formtips').remove();
+				});
+				
 			});
 		</script>
 	</head>
