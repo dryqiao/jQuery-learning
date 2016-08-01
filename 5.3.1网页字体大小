@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>5.3字体大小</title>
+		<script src="js/jquery-3.0.0.min.js"></script>
+		<script>
+			$(function(){
+				$('span').click(function(){
+					var thisEle=$('#para').css('font-size');
+					var txtFontsize=parseInt(thisEle,10);
+					var cName=$(this).attr("class");
+					if(cName=='bigger'){
+						txtFontsize+=2;
+					}
+					if(cName=='smaller'){
+						txtFontsize-=2;
+					}
+					$('#para').css('font-size',txtFontsize+'px');
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="msg">
+			<div class="msg_caption">
+				<span class="bigger">放大</span>
+				<span class="smaller">缩小</span>
+			</div>
+			<div>
+				<p id="para">
+					fhauihfiaehfoahofhaoi fhauihfiaehfoahofhaoifhauihfiaehfoahofhaoi fhauihfiaehfoahofhaoi fhauihfiaehfoahofhaoi
+					fhauihfiaehfoahofhaoifhauihfiaehfoahofhaoifhauihfiaehfoahofhaoi fhauihfiaehfoahofhaoi fhauihfiaehfoahofhaoi fhauihfiaehfoahofhaoi
+					vfhauihfiaehfoahofhaoi vfhauihfiaehfoahofhaoifhauihfiaehfoahofhaoi fhauihfiaehfoahofhaoi
+				</p>
+			</div>
+		</div>
+	</body>
+</html>
