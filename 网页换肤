@@ -1,0 +1,15 @@
+$(function(){
+	$('#skin li').click(function(){
+		switchSkin(this.id);
+	});
+	var cookie_skin=$.cookie("MyCssSkin");
+	if(cookie_skin){
+		switchSkin(cookie_skin);
+	}
+})
+function switchSkin(skinName){
+	$('#'+skinName).addClass('selcted')//添加选中样式
+					.siblings().removeClass('selcted');//去除其他的样式
+	$('#cssfile').attr("href","css/skin/"+skinName+".css");
+	$.cookie("MyCssSkin",skinName,{path:'/',expires:10});
+}
