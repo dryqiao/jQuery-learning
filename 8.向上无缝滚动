@@ -1,0 +1,21 @@
+$(function(){
+	var $this=$(".scrollnews");
+	var scrollTimer;
+	//鼠标停留时取消滚动效果
+	$this.hover(function(){
+		clearInterval(scrollTimer);
+		
+	},function(){
+		scrollTimer=setInterval(function(){
+			scrollNews($this);
+		},1000);
+	}).trigger("mouseleave");
+});
+//向上无缝滚动
+function scrollNews(obj){
+	var $self=obj.find("ul:first");
+	var lineheight=$self.find("li:last").height();
+	$self.animate({"marginTop":-lineheight+"px"},600,function(){ 
+		$self.css({marginTop:0}).find("li:first").appendTo($self);
+	})
+}
