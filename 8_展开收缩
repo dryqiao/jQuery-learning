@@ -1,0 +1,13 @@
+//展开收缩脚本
+$(function(){
+	$('.module_down').toggle(function(){
+		var $down=$(this).next();
+		$down.slideToggle(500,function(){
+			$('.module_down img').attr("src","img/down.gif");
+		});
+	},function(){
+		var $down=$(this).next();
+		$down.slideToggle(500,function(){
+			$('.module_down img').attr("src","img/up.gif");
+	}); })
+})
