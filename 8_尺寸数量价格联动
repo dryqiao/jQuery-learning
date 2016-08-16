@@ -1,0 +1,17 @@
+//尺寸
+$(function(){
+	$('.pro_size ul li span').click(function(){
+		$('.pro_size strong').text($(this).text());
+	})
+})
+//数量和价格
+$(function(){
+	var $span=$('.pro_price span');
+	var price=$span.text();
+	$('#num_sort').change(function(){
+		var num=$(this).val();
+		var aamount=num*price;
+		$span.text(aamount);
+	})
+	
+})
