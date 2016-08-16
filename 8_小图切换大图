@@ -1,0 +1,16 @@
+//点击小图切换大图
+$(function(){
+	$('.pro_list_left ul li img').livequery("click",function(){
+		var imgsrc=$(this).attr('src');
+		var i=imgsrc.indexOf('.');
+		var unit=imgsrc.substring(i);
+		imgsrc=imgsrc.substring(0,i);
+		var imgsrc_small=imgsrc+'_small'+unit;
+		var imgsrc_big=imgsrc+'_big'+unit;
+		$('#bigImg').attr({
+			'src':imgsrc_small,
+			'jqimg':imgsrc_big
+		});
+		$('#thickImg').attr('href',imgsrc_big);
+	})
+})
