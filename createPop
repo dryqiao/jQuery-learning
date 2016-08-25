@@ -1,0 +1,19 @@
+//获取选中表格的数据并打印在弹窗中
+function getTableData(){
+//	获取选中的行的tr
+	var $jChoose=$('.table-spc input:checked').parent();
+//	获取需要打印的值
+	var 
+		jupLimit=$jChoose.siblings("#upLimit").text(),
+		jdownLimit=$jChoose.siblings("#downLimit").text(),
+		jsampleSize=$jChoose.siblings("#sampleSize").text();
+		jsonNum=$jChoose.siblings("#sonNum").text();
+//填充弹窗
+	$('.popConfig #upLimit').val(jupLimit);
+	$('.popConfig #downLimit').val(jdownLimit);
+	$('.popConfig #sampleSize').val(jsampleSize);
+	$('.popConfig #sonNum').val(jsonNum);
+//	$('.popConfig #upLimit').val(jupLimit);
+//	$('.popConfig #upLimit').val(jupLimit);
+	
+}
